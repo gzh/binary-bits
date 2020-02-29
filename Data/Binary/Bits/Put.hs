@@ -173,3 +173,6 @@ instance Monad BitPut where
         PairS b s'' = run (k a) s'
     in PairS b s''
   return x = BitPut $ \s -> PairS x s
+
+instance MonadFail BitPut where
+  fail = errorWithoutStackTrace
