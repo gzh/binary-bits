@@ -464,11 +464,12 @@ byteString n | n > 0 = Block (n*8) (readByteString n)
 ------------------------------------------------------------------------
 -- Unchecked shifts, from the package binary
 
+shiftl_w8 :: Word8 -> Int -> Word8
 shiftl_w16 :: Word16 -> Int -> Word16
 shiftl_w32 :: Word32 -> Int -> Word32
 shiftl_w64 :: Word64 -> Int -> Word64
 
-#if defined(__GLASGOW_HASKELL__) && !defined(__HADDOCK__)
+#if 0 && defined(__GLASGOW_HASKELL__) && !defined(__HADDOCK__)
 shiftl_w8  (W8#  w) (I# i) = W8# (w `uncheckedShiftL#`   i)
 shiftl_w16 (W16# w) (I# i) = W16# (w `uncheckedShiftL#`   i)
 shiftl_w32 (W32# w) (I# i) = W32# (w `uncheckedShiftL#`   i)
